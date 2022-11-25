@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const userRouter = require("./Router/userRouter.js");
+const tokenRouter = require("./Router/tokenRouter.js");
 const mongoose = require("mongoose");
 require("dotenv").config();
 
@@ -13,6 +14,7 @@ App.use(cors({ credentials: true, origin: true }));
 App.use(cookieParser());
 App.use(express.urlencoded({ extended: true }));
 App.use(express.json());
+App.use(tokenRouter);
 App.use(userRouter);
 
 const PORT = process.env.PORT || 5000;

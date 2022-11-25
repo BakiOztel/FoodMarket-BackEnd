@@ -12,8 +12,10 @@ const userModel = mongoose.Schema({
     password: {
         type: String,
         require: true
+    },
+    refreshToken: {
+        type: String
     }
-
-})
+});
 
 module.exports = mongoose.model("users", userModel);
